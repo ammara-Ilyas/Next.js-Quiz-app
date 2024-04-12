@@ -1,0 +1,71 @@
+.container_quiz {
+  height: 90vh;
+  display: flex;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+}
+.quiz_box {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 20px;
+  border: none;
+  padding: 20px;
+  width: 60%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.scorePage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.button {
+  padding: 10px 5px;
+  margin: 0;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: none;
+  width: 93%;
+  border-radius: 25px;
+  transition: 0.2s ease-in-out all;
+}
+.button:hover {
+  transform: scale(1.02);
+}
+.wrong {
+  background-color: rgb(173, 231, 85, 0.7);
+}
+.question {
+  padding: 10px;
+  margin-bottom: 20px;
+}
+.row {
+  padding: 15px;
+}
+.next {
+  display: flex;
+  justify-content: center;
+}
+.btn {
+  margin: 2px;
+  font-size: 18px;
+  padding: 10px 30px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  transition: 0.2s ease-in-out all;
+}
+.btn:hover {
+  transform: scale(1.02);
+}
+@media screen and (max-width: 450px) {
+  .container_quiz {
+    height: 100vh;
+  }
+}
+@media screen and (max-width: 350px) {
+  .container_quiz {
+    align-items: start;
+  }
+}
