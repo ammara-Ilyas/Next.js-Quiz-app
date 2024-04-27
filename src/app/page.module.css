@@ -6,12 +6,7 @@
   align-items: center;
   position: relative;
 }
-.time {
-  color: black;
-  position: absolute;
-  right: 12%;
-  top: 4%;
-}
+
 .quiz_box {
   display: flex;
   flex-direction: column;
@@ -21,6 +16,12 @@
   padding: 20px;
   width: 60%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.time {
+  color: black;
+  position: absolute;
+  right: 12%;
+  top: 4%;
 }
 .scorePage {
   display: flex;

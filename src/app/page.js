@@ -10,7 +10,7 @@ export default function page() {
   const [Question, setQuestion] = useState(true);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [isFlag, setIsFlag] = useState(null);
-  const [timeRemaining, setTimeRemaining] = useState(30);
+  const [timeRemaining, setTimeRemaining] = useState(10);
 
   let { question, answer } = data[index];
 
@@ -23,7 +23,7 @@ export default function page() {
     } else {
       return setIndex(0);
     }
-    setTimeRemaining(30);
+    setTimeRemaining(10);
     return setClickOption(true);
   };
   const CheckAnswer = (ans) => {
@@ -41,41 +41,43 @@ export default function page() {
 
   return (
     <div className={`${style.container_quiz}`}>
-      <TimeCom
-        timeRemaining={timeRemaining}
-        setTimeRemaining={setTimeRemaining}
-        nextQuizClick={nextQuizClick}
-      />
       {Question ? (
-        <div className={`${style.quiz_box} `}>
-          <h2 className={`${style.question}`}>{question}</h2>
-          {answer.map((ans, i) => (
-            <div className={`${style.row}`} key={i}>
+        <>
+          <TimeCom
+            timeRemaining={timeRemaining}
+            setTimeRemaining={setTimeRemaining}
+            nextQuizClick={nextQuizClick}
+          />
+          <div className={`${style.quiz_box} `}>
+            <h2 className={`${style.question}`}>{question}</h2>
+            {answer.map((ans, i) => (
+              <div className={`${style.row}`} key={i}>
+                <button
+                  className={`${style.button}`}
+                  onClick={clickOption ? () => CheckAnswer(ans) : undefined}
+                  style={
+                    selectedAnswer === ans
+                      ? {
+                          backgroundColor: isFlag ? "green" : "red",
+                          color: isFlag ? "white" : "white",
+                        }
+                      : {}
+                  }
+                >
+                  {ans}
+                </button>
+              </div>
+            ))}
+            <div className={`${style.next}`}>
               <button
-                className={`${style.button}`}
-                onClick={clickOption ? () => CheckAnswer(ans) : undefined}
-                style={
-                  selectedAnswer === ans
-                    ? {
-                        backgroundColor: isFlag ? "green" : "red",
-                        color: isFlag ? "white" : "white",
-                      }
-                    : {}
-                }
+                className={`${style.btn}`}
+                onClick={() => nextQuizClick(+1)}
               >
-                {ans}
+                Next
               </button>
             </div>
-          ))}
-          <div className={`${style.next}`}>
-            <button
-              className={`${style.btn}`}
-              onClick={() => nextQuizClick(+1)}
-            >
-              Next
-            </button>
           </div>
-        </div>
+        </>
       ) : (
         <div
           className={`${style.quiz_box}  ${style.scorePage}`}
