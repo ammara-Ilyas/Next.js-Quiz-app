@@ -4,6 +4,13 @@
   background-color: white;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+.time {
+  color: black;
+  position: absolute;
+  right: 12%;
+  top: 4%;
 }
 .quiz_box {
   display: flex;
